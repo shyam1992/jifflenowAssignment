@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Question extends Component {
+export default class Question extends Component {
     render(){
+        let list = this.props.question.options.map((elm) => {
+            return <li key={elm}>{elm}</li>;
+        });
         return(
             <div>
-                Question Component
+                {this.props.question.text}
+                <ul>
+                {list}
+                </ul>
             </div>
         )
     }
 }
-const mapStateToProps = (state) => {
-    return state;
-}
-
-export default connect(mapStateToProps)(Question);

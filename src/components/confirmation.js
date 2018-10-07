@@ -7,7 +7,7 @@ export default class Confirmation extends Component{
         return(
             <div>
                 Congratulations you've completed the test.
-                <Link to="/"><Button text="Retry" /></Link>
+                <Link to="/"><Button text="Retry" onClick={()=>console.log("reload")}/></Link>
             </div>
         )
     }

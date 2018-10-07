@@ -6,7 +6,6 @@ import {
 
 
 export const questions = (state = {}, action) => {
-    console.log(action.payload);
     switch(action.type){
         case 'NEXT': 
         return Object.assign({},state,{"currentQuestion": state.currentQuestion + 1});

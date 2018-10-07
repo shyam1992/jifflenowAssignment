@@ -1,18 +1,22 @@
+import json from '../data.json';
+
 export const FETCH_PRODUCTS_BEGIN   = 'FETCH_PRODUCTS_BEGIN';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 
+
 export function fetchQuestions() {
     return dispatch => {
-      dispatch(fetchProductsBegin());
-      return fetch("https://cdn.rawgit.com/santosh-suresh/39e58e451d724574f3cb/raw/784d83b460d6c0150e338c34713f3a1c2371e20a/assignment")
+      /*dispatch(fetchProductsBegin());
+      return fetch("https://cdn.rawgit.com/santosh-suresh/39e58e451d724574f3cb/raw/784d83b460d6c0150e338c34713f3a1c2371e20a/assignment.json")
         .then(handleErrors)
         .then(json => {
             console.log(json);
           dispatch(fetchProductsSuccess(json));
           return json;
         })
-        .catch(error => dispatch(fetchProductsFailure(error)));
+        .catch(error => dispatch(fetchProductsFailure(error)));*/
+        dispatch(fetchProductsSuccess(json));
     };
   }
   

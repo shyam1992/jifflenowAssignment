@@ -4,9 +4,10 @@ import thunk from 'redux-thunk';
 
   
 const initialState = {
-    questions: [],
+  testquestions: [],
     loading: false,
-    error: null
+    error: null,
+    currentQuestion: 0
   };
 
 const store = createStore(questions,initialState, compose(applyMiddleware(thunk)));

@@ -7,7 +7,7 @@ export default class Home extends Component{
         return(
             <div>
                 Welcome to Jifflenow test.
-                <Link to="/questions"><Button text="Continue" /></Link>
+                <Link to="/questions"><Button text="Continue" onClick={()=>console.log("load")}/></Link>
             </div>
         )
     }

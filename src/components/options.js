@@ -3,16 +3,19 @@ import { connect } from 'react-redux';
 
 class Options extends Component {
     render(){
+        let list = this.props.options.map((elm) => {
+            return <button key={elm}>{elm}</button>;
+        });
         return(
             <div>
-            Options
+            {list}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    return state.testquestions[state.currentQuestion];
 }
 
 export default connect(mapStateToProps)(Options);
