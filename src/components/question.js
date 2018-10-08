@@ -7,8 +7,8 @@ export default class Question extends Component {
             return <li key={elm}>{elm}</li>;
         });
         return(
-            <div>
-                {this.props.question.text}
+            <div className="question">
+                <h2>{this.props.question.text}</h2>
                 <ul>
                 {list}
                 </ul>

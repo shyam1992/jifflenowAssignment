@@ -5,9 +5,9 @@ import { Button } from './custombutton';
 export default class Home extends Component{
     render(){
         return(
-            <div>
-                Welcome to Jifflenow test.
-                <Link to="/questions"><Button text="Continue" onClick={()=>console.log("load")}/></Link>
+            <div className="homeDiv">
+                <h1>Welcome to Jifflenow test.</h1>
+                <Link to="/questions"><Button enabled = {true} text="Start the Test" onClick={()=>console.log("load")}/></Link>
             </div>
         )
     }

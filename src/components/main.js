@@ -9,9 +9,6 @@ import { Link } from 'react-router-dom';
 class Main extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            nextButtonEnabled : false
-        }
         this.nextButtonClicked = this.nextButtonClicked.bind(this);
     }
     nextButtonClicked(){
@@ -26,8 +23,10 @@ class Main extends Component {
             return(
                 <div>
                     <Question question ={this.props.testquestions[this.props.currentQuestion]}/>
-                    <Options question ={this.props.testquestions[this.props.currentQuestion]}/>
-                    <Link to="/confirm"><CustomButton text="next" enabled={this.state.nextButtonEnabled} onClick={()=>console.log("done")}/></Link>
+                    <Options />
+                    <div className="nextbtnsection">
+                    <Link to="/confirm"><CustomButton text="next" enabled={this.props.nextButtonEnabled} onClick={()=>console.log("done")}/></Link>
+                    </div>
                 </div>
             )
         } else if(this.props.testquestions.length === 0){
@@ -39,7 +38,9 @@ class Main extends Component {
                 <div>
                     <Question question ={this.props.testquestions[this.props.currentQuestion]}/>
                     <Options />
-                    <CustomButton text="next" enabled={this.state.nextButtonEnabled} onClick={() => this.nextButtonClicked()}/>
+                    <div className="nextbtnsection">
+                    <CustomButton text="next" enabled={this.props.nextButtonEnabled} onClick={() => this.nextButtonClicked()}/>
+                    </div>
                 </div>
             )
         }
@@ -53,7 +54,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         next : () => dispatch({type:"NEXT"}),
-        answered : () => dispatch({type: "ANSWERED"}),
         fetchQuestions : () => dispatch(fetchQuestions())
     }
 }

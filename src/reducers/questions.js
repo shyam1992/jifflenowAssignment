@@ -6,9 +6,10 @@ import {
 
 
 export const questions = (state = {}, action) => {
+  console.log(action.type);
     switch(action.type){
         case 'NEXT': 
-        return Object.assign({},state,{"currentQuestion": state.currentQuestion + 1});
+        return Object.assign({},state,{"currentQuestion": state.currentQuestion + 1,"nextButtonEnabled":false});
         case FETCH_PRODUCTS_BEGIN:
         return {
           ...state,
@@ -33,6 +34,17 @@ export const questions = (state = {}, action) => {
           error: action.payload.error,
           testquestions: []
         };
+
+      case 'ANSWERED':
+        let answersMap = {
+          ...state.answersMap,
+          [state.currentQuestion] : action.option
+        }
+        return {
+          ...state,
+          "nextButtonEnabled":true,
+          "answersMap": answersMap
+        }
         default :
         return state;
     }

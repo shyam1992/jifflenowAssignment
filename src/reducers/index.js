@@ -7,7 +7,8 @@ const initialState = {
   testquestions: [],
     loading: false,
     error: null,
-    currentQuestion: 0
+    currentQuestion: 0,
+    nextButtonEnabled: false
   };
 
 const store = createStore(questions,initialState, compose(applyMiddleware(thunk)));
