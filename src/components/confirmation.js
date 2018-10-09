@@ -32,7 +32,7 @@ class Confirmation extends Component{
                 </table>
                 <h3>Percentage Completion = {percentage}%</h3>
                 <br />
-                <Link to="/"><Button enabled={true} text="Retry" onClick={()=>console.log("reload")}/></Link>
+                <Link to="/"><Button enabled={true} text="Retry" onClick={()=>{console.log("reload");this.props.clear()}}/></Link>
             </div>
         )
     }
@@ -41,5 +41,9 @@ class Confirmation extends Component{
 const mapStateToProps = (state) =>{
     return state;
 }
-
-export default connect(mapStateToProps)(Confirmation);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        clear : () => dispatch({"type":"CLEAR"})
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Confirmation);

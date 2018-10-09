@@ -45,6 +45,14 @@ export const questions = (state = {}, action) => {
           "nextButtonEnabled":true,
           "answersMap": answersMap
         }
+      case 'CLEAR':
+       return {
+          testquestions: [],
+          loading: false,
+          error: null,
+          currentQuestion: 0,
+          nextButtonEnabled: false
+        };
         default :
         return state;
     }
