@@ -6,7 +6,7 @@ export default class Home extends Component{
     render(){
         return(
             <div className="homeDiv">
-                <h1>Welcome to Jifflenow test.</h1>
+                <h1>Welcome to Jifflenow code pipeline test.</h1>
                 <Link to="/questions"><Button enabled = {true} text="Start the Test" onClick={()=>console.log("load")}/></Link>
             </div>
         )
